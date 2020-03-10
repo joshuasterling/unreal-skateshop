@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  background-color: dodgerblue;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.title {
+  display: flex;
+  font-family: "Rock Salt", cursive;
+  background-color: dodgerblue;
+  padding-left: 30px;
+}
