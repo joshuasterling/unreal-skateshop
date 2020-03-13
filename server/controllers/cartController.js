@@ -1,27 +1,23 @@
 module.exports = {
   addToCart: async (req, res) => {
-    if (!require.body.product_id || !req.session.user.user_id) {
-      return res.status(400);
-    }
+    const { user_id, product_id, qty } = req.body;
     const db = req.app.get("db");
-    let { product_id } = req.body;
-    let { user_id } = req.session.user;
 
-    try {
-      let cart = await db.get_cart([user_id]);
-      let alreadyExists = cart.filter(
-        product => +product.product_id === +product_id
-      ).length;
-      if (alreadyExists) {
-        cart = await db.increase_qty({ user_id, product_id });
-        return res.status(200).send(cart);
-      } else {
-        cart = await db.add_to_cart({ product_id, user_id });
-        return res.status(200).send(cart);
-      }
-    } catch (error) {
-      return res.sendStatus(500);
+    let cart = await db.get_cart(user_id);
+    let cartCheck = cart.filter(e => {
+      return e.product_id === product_id;
+    });
+
+    if (cartCheck[0]) {
+      cart = await db.update_qty(
+        cartCheck[0].cart_id,
+        cartCheck[0].qty + 1,
+        user_id
+      );
+    } else {
+      cart = await db.add_to_cart(user_id, product_id);
     }
+    return res.status(200).send(cart);
   },
 
   getCart: async (req, res) => {
@@ -36,6 +32,35 @@ module.exports = {
       if (cart) {
         return res.status(200).send(cart);
       }
+    } catch (error) {
+      return res.sendStatus(500);
+    }
+  },
+
+  updateQty: async (req, res) => {
+    const { cart_id, qty, user_id } = req.body;
+    const db = req.app.get("db");
+
+    try {
+      let cart = await db.update_qty(cart_id, qty, user_id);
+      return res.status(200).send(cart);
+    } catch (error) {
+      return res.sendStatus(500);
+    }
+  },
+
+  deleteItem: async (req, res) => {
+    if (!req.session.user.user_id) {
+      return res.status(400);
+    }
+    let { user_id } = req.session.user;
+
+    const { cart_id } = req.params;
+    const db = req.app.get("db");
+
+    try {
+      let cart = await db.delete_item(cart_id, user_id);
+      return res.status(200).send(cart);
     } catch (error) {
       return res.sendStatus(500);
     }

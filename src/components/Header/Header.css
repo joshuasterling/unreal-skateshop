@@ -1,18 +1,61 @@
 .header {
   display: flex;
-  background-color: dodgerblue;
+  background-color: rgba(255, 105, 180, 0.75);
   justify-content: space-between;
-}
-
-.form {
-  display: flex;
   align-items: center;
-  padding-right: 30px;
+  border: none;
+  border-bottom: black 3px solid;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  height: 15vh;
+  z-index: 10;
 }
 
 .title {
   display: flex;
   font-family: "Rock Salt", cursive;
-  background-color: dodgerblue;
-  padding-left: 30px;
+  padding-left: 2vw;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+.navbar-item {
+  display: flex;
+  justify-content: space-around;
+  font-size: medium;
+  font-family: "Rock Salt", cursive;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1.5vw;
+  width: 21vw;
+  font-family: "Rock Salt", cursive;
+  font-size: small;
+  font-weight: 700;
+}
+
+.input {
+  padding: 0.3%;
+  margin: 0.3%;
+  width: 55%;
+}
+
+.auth-button {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  font-family: "Rock Salt", cursive;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 0.3vh;
 }

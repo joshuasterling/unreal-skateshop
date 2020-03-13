@@ -1,8 +1,210 @@
 .landing {
-  background-image: url("https://s.yimg.com/uu/api/res/1.2/a9JZJnIFOiEBxL9d4Js9Og--~B/aD0xNjAwO3c9MTYwMDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en-US/popsugar_fitness_773/69fb074493ae68e033f8971d833064c4");
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
+  padding-top: 15vh;
+}
+
+.welcome {
+  background-image: url("https://unrealskateshop.s3-us-west-1.amazonaws.com/Cover.jpg");
+  background-size: 100vw;
+  width: 100vw;
+  height: 167vh;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+}
+
+.welcome-message {
+  font-family: "Rock Salt", cursive;
+  font-size: 6em;
+  margin-top: 95vh;
+  text-align: center;
+  color: white;
+  width: 100vw;
+}
+
+.build {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Rock Salt", cursive;
+  font-size: 2.5rem;
+  background-color: white;
+  height: 85vh;
+  width: 100vw;
+  padding: 3%;
+}
+
+.build-textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.build-image {
+  margin-left: 5vw;
+  border: solid black 3px;
+}
+
+.shop {
+  background-color: #f8f9fa;
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Rock Salt", cursive;
+  font-size: 2.5rem;
+  padding: 3%;
+}
+
+.shop-image1 {
+  height: 50vh;
+  width: 27vw;
+  border: solid black 3px;
+}
+
+.shop-textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.shop-image2 {
+  height: 50vh;
+  width: 27vw;
+  border: solid black 3px;
+}
+
+.about {
+  background-color: white;
+  height: 85vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Rock Salt", cursive;
+  font-size: 2.5rem;
+  padding: 3%;
+}
+
+.about-textbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image {
+  border: solid black 3px;
+  height: 48vh;
+  width: 42vw;
+  transform: scaleX(-1);
+  margin-right: 5vw;
+  z-index: 0;
+}
+
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
+  height: 85vh;
+  width: 100vw;
+  font-family: "Rock Salt", cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.our-team {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80vw;
+}
+
+.profile-cards {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profile-pic1 {
+  display: flex;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: solid black 5px;
+  align-items: center;
+  object-position: 20%;
+  object-fit: cover;
+}
+
+.profile-pic2 {
+  display: flex;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: solid black 5px;
+  align-items: center;
+}
+
+.profile-pic3 {
+  display: flex;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: solid black 5px;
+  align-items: center;
+  object-fit: cover;
+  object-position: 35%;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+}
+
+.job-titles {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.social-media {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 4vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.sm-logos {
+  height: 40px;
+  width: 40px;
+}
+
+.section-heading {
+  font-size: 3.8rem;
+  margin-bottom: 3vh;
+}
+
+.section-script {
+  font-size: medium;
+  font-size: 1.4rem;
+  margin-bottom: 1vh;
+}
+
+.section-button {
+  font-family: "Rock Salt", cursive;
+  font-weight: 700;
+  font-size: 1.3rem;
+  background-color: rgba(255, 105, 180, 0.75);
+  height: 8vh;
+  width: 9vw;
+  border: solid black 2px;
 }

@@ -38,10 +38,13 @@ app.post("/api/login", checkUser, authCtrl.login);
 app.post("/api/logout", authCtrl.logout);
 
 //PRODUCT ENDPOINTS
-// app.get("/api/products", productCtrl.getProducts);
+app.get("/api/products", productCtrl.getProducts);
+app.get("/api/products/:type", productCtrl.getProductsByType);
 
 //CART ENDPOINTS
-// app.post("/api/cart", cartCtrl.addToCart);
-// app.get("/api/cart", cartCtrl.getCart);
+app.post("/api/cart", cartCtrl.addToCart);
+app.get("/api/cart", cartCtrl.getCart);
+app.put("/api/cart", cartCtrl.updateQty);
+app.delete("/api/cart/:cart_id", cartCtrl.deleteItem);
 
 app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`));

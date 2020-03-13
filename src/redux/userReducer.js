@@ -82,6 +82,7 @@ export default function userReducer(state = initialState, action) {
     case REGISTER + "_FULFILLED":
       return { ...state, user: action.payload.data, loading: false };
     case REGISTER + "_REJECTED":
+      console.log(action);
       return {
         ...state,
         loading: false,

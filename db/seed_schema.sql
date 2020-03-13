@@ -12,12 +12,9 @@ CREATE TABLE products (
   product_type VARCHAR(250)
 );
 
-CREATE TABLE cart (
-  cart_id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(user_id),
-  deck_id INTEGER REFERENCES products(product_id),
-  truck_id INTEGER REFERENCES products(product_id),
-  wheel_id INTEGER REFERENCES products(product_id),
-  bearing_id INTEGER REFERENCES products(product_id),
-  qty INTEGER
+CREATE TABLE cart(
+cart_id SERIAL PRIMARY KEY,
+user_id INTEGER REFERENCES users(user_id),
+product_id INTEGER REFERENCES products(product_id),
+qty INTEGER
 );
