@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { logout, login, register, clearReducer } from "../../redux/userReducer";
 import { Link, withRouter } from "react-router-dom";
+// eslint-disable-next-line
+import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
 import AuthErrors from "../Auth/AuthErrors";
 import "./Header.css";
 
@@ -12,12 +14,27 @@ function Header(props) {
 
   return (
     <div className="header">
-      <h1 className="title">Unreal Skateshop</h1>
+      <Link to="/">
+        <h1 className="title">Unreal Skateshop</h1>
+      </Link>
       <div className="navbar">
-        <p className="navbar-item">Build Your Own</p>
-        <p className="navbar-item">Shop</p>
-        <p className="navbar-item">About</p>
-        <p className="navbar-item">Contact Us</p>
+        {props.location.pathname === "/" ? (
+          <>
+            <LinkScroll to="section1" smooth={true} offset={-140}>
+              <p className="navbar-item">Build Your Own</p>
+            </LinkScroll>
+            <LinkScroll to="section2" smooth={true} offset={-140}>
+              <p className="navbar-item">Shop</p>
+            </LinkScroll>
+            <LinkScroll to="section3" smooth={true} offset={-140}>
+              <p className="navbar-item">About</p>
+            </LinkScroll>
+            <LinkScroll to="section4" smooth={true}>
+              <p className="navbar-item">Contact Us</p>
+            </LinkScroll>
+          </>
+        ) : null}
+
         {!props.userReducer.user.user_email ? (
           registered ? (
             //MEMBER LOGIN
@@ -102,20 +119,23 @@ function Header(props) {
             </form>
           )
         ) : (
-          <div>
+          <div className="logged-in">
             <h3>Logged in as: {props.userReducer.user.user_email}</h3>
-            <button>
-              <Link to="/cart">Cart</Link>
-            </button>
-            <button
-              onClick={() => {
-                props.logout();
-                props.clearReducer();
-                props.history.push("/");
-              }}
-            >
-              Logout
-            </button>
+            <div className="logged-in-buttons">
+              <button className="auth-button">
+                <Link to="/cart">Cart</Link>
+              </button>
+              <button
+                className="auth-button"
+                onClick={() => {
+                  props.logout();
+                  props.clearReducer();
+                  props.history.push("/");
+                }}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         )}
       </div>

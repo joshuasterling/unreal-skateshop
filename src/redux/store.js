@@ -3,10 +3,12 @@ import promiseMiddleware from "redux-promise-middleware";
 import { composeWithDevTools } from "redux-devtools-extension";
 import userReducer from "./userReducer";
 import cartReducer from "./cartReducer";
+import productReducer from "./productReducer";
 
 const rootReducer = combineReducers({
   userReducer,
-  cartReducer
+  cartReducer,
+  productReducer
 });
 
 export default createStore(

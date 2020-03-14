@@ -1,0 +1,42 @@
+.full-carousel {
+  display: flex;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.span {
+  display: flex;
+}
+
+.carousel-item {
+  max-width: 25vw;
+  max-height: 45vh;
+}
+
+.carousel-section {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rock Salt", cursive;
+  text-align: center;
+}
+
+.item-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.cart-button {
+  font-family: "Rock Salt", cursive;
+  font-weight: 700;
+  background-color: rgba(255, 105, 180);
+  border: black 3px solid;
+  height: 5vh;
+  width: 7vw;
+}

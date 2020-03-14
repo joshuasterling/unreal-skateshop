@@ -1,0 +1,35 @@
+.shop-component {
+  font-family: "Rock Salt", cursive;
+  font-weight: 700;
+}
+
+.shop-section {
+  display: flex;
+  flex-direction: column;
+  height: 110vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  font-family: "Rock Salt", cursive;
+  text-align: center;
+}
+
+.shop-title {
+  display: flex;
+  align-items: center;
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.shop-holder {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.shop-nav-pics {
+  display: flex;
+  height: 50vh;
+  width: 20vw;
+  border: solid black 3px;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
 import twitter from "./twitter.svg";
 import facebook from "./facebook.svg";
 import linkedin from "./linkedin.svg";
@@ -17,7 +18,7 @@ class Landing extends React.Component {
             Welcome To The Most Unreal Skateshop You've Ever Seen...
           </p>
         </div>
-        <div className="build">
+        <div className="build" id="section1">
           <div className="build-textbox">
             <div>
               <h3 className="section-heading">Build Your Own Board</h3>
@@ -40,7 +41,7 @@ class Landing extends React.Component {
             alt=""
           />
         </div>
-        <div className="shop">
+        <div className="shop" id="section2">
           <img
             className="shop-image1"
             src="https://unrealskateshop.s3-us-west-1.amazonaws.com/3+Decks.jpg"
@@ -58,7 +59,9 @@ class Landing extends React.Component {
               </p>
             </div>
             <div>
-              <button className="section-button">Click Here</button>
+              <Link to="/shop">
+                <button className="section-button">Click Here</button>
+              </Link>
             </div>
           </div>
           <img
@@ -67,7 +70,7 @@ class Landing extends React.Component {
             alt=""
           />
         </div>
-        <div className="about">
+        <div className="about" id="section3">
           <img
             className="about-image"
             src="https://unrealskateshop.s3-us-west-1.amazonaws.com/Chick-Skater.jpg"
@@ -86,12 +89,9 @@ class Landing extends React.Component {
                 everyone can skate free of worry and fear.
               </p>
             </div>
-            <div>
-              <button className="section-button">Click Here</button>
-            </div>
           </div>
         </div>
-        <div className="contact-us">
+        <div className="contact-us" id="section4">
           <div>
             <h3 className="section-heading">Check Out Our Team</h3>
           </div>
@@ -105,9 +105,27 @@ class Landing extends React.Component {
               <h5>Creed Bratton</h5>
               <p className="job-titles">Quality Assurance</p>
               <div className="social-media">
-                <img className="sm-logos" src={twitter} alt="" />
-                <img className="sm-logos" src={facebook} alt="" />
-                <img className="sm-logos" src={linkedin} alt="" />
+                <a
+                  href="https://twitter.com/creedbratton?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={twitter} alt="" />
+                </a>
+                <a
+                  href="https://www.facebook.com/creedbrattonmusic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={facebook} alt="" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/creed-bratton-a98421198/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={linkedin} alt="" />
+                </a>
               </div>
             </div>
             <div>
@@ -119,9 +137,27 @@ class Landing extends React.Component {
               <h5>Ron Swanson</h5>
               <p className="job-titles">General Manager</p>
               <div className="social-media">
-                <img className="sm-logos" src={twitter} alt="" />
-                <img className="sm-logos" src={facebook} alt="" />
-                <img className="sm-logos" src={linkedin} alt="" />
+                <a
+                  href="https://twitter.com/reaironswanson?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={twitter} alt="" />
+                </a>
+                <a
+                  href="https://www.facebook.com/Ron-Swanson-152446580913/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={facebook} alt="" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ron-swanson-07295149/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={linkedin} alt="" />
+                </a>
               </div>
             </div>
             <div>
@@ -133,9 +169,27 @@ class Landing extends React.Component {
               <h5>Chandler Bing</h5>
               <p className="job-titles">Marketing Director</p>
               <div className="social-media">
-                <img className="sm-logos" src={twitter} alt="" />
-                <img className="sm-logos" src={facebook} alt="" />
-                <img className="sm-logos" src={linkedin} alt="" />
+                <a
+                  href="https://twitter.com/chandlermbing?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={twitter} alt="" />
+                </a>
+                <a
+                  href="https://www.facebook.com/darealchandler/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={facebook} alt="" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/chandler-bing-b642a0183/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="sm-logos" src={linkedin} alt="" />
+                </a>
               </div>
             </div>
           </div>
@@ -155,4 +209,4 @@ const mapStateToProps = reduxState => {
   };
 };
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps)(withRouter(Landing));

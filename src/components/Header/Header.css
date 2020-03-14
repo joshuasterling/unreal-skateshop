@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  background-color: rgba(255, 105, 180, 0.75);
+  background-color: rgba(255, 105, 180);
   justify-content: space-between;
   align-items: center;
   border: none;
@@ -10,6 +10,16 @@
   top: 0;
   height: 15vh;
   z-index: 10;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 .title {
@@ -58,4 +68,15 @@
   align-items: center;
   font-weight: 700;
   margin-top: 0.3vh;
+  border: black 3px solid;
+}
+
+.logged-in {
+  margin-left: 35vw;
+}
+
+.logged-in-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1vh;
 }
