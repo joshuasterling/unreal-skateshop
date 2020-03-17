@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 class AuthErrors extends React.Component {
   render() {
     if (this.props.userReducer.error)
-      toast.error(`${this.props.userReducer.errorMessage}`, {
+      toast.warning(`${this.props.userReducer.errorMessage}`, {
         position: toast.POSITION.TOP_RIGHT
       });
     return (

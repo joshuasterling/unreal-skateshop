@@ -1,6 +1,12 @@
 module.exports = {
   addToCart: async (req, res) => {
-    const { user_id, product_id, qty } = req.body;
+    if (!req.session.user.user_id) {
+      return res.status(400);
+    }
+    let { user_id } = req.session.user;
+    const { product_id } = req.body;
+    const { session } = req;
+
     const db = req.app.get("db");
 
     let cart = await db.get_cart(user_id);

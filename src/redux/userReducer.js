@@ -18,7 +18,6 @@ export function checkUser() {
     type: CHECK_USER,
     payload: axios.get("/api/user")
   };
-
   return action;
 }
 
@@ -27,7 +26,6 @@ export function register(user_email, user_password) {
     type: REGISTER,
     payload: axios.post("/api/register", { user_email, user_password })
   };
-
   return action;
 }
 
@@ -36,7 +34,6 @@ export function login(user_email, user_password) {
     type: LOGIN,
     payload: axios.post("/api/login", { user_email, user_password })
   };
-
   return action;
 }
 
@@ -45,7 +42,6 @@ export function logout() {
     type: LOGOUT,
     payload: axios.post("/api/logout")
   };
-
   return action;
 }
 
@@ -53,7 +49,6 @@ export function clearReducer() {
   let action = {
     type: CLEAR_REDUCER
   };
-
   return action;
 }
 

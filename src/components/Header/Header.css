@@ -60,18 +60,33 @@ a:visited {
   width: 55%;
 }
 
+.login-button {
+  width: 5vw;
+  height: 3vh;
+  font-family: "Rock Salt", cursive;
+  border: black 3px solid;
+  font-weight: 700;
+  margin-top: 0.3vh;
+}
+
 .auth-button {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 5vw;
+  height: 5vh;
   font-family: "Rock Salt", cursive;
   align-items: center;
+  justify-content: center;
+  font-size: 1rem;
   font-weight: 700;
   margin-top: 0.3vh;
   border: black 3px solid;
 }
 
 .logged-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 35vw;
 }
 
@@ -79,4 +94,5 @@ a:visited {
   display: flex;
   justify-content: space-evenly;
   margin-top: 1vh;
+  width: 20vw;
 }

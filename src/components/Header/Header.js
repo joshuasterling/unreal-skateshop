@@ -62,7 +62,7 @@ function Header(props) {
                 placeholder="Enter your password"
                 onChange={e => setPassword(e.target.value)}
               />
-              <button className="auth-button">Login</button>
+              <button className="login-button">Login</button>
               <p>
                 Don't have an account?{" "}
                 <span
@@ -106,7 +106,7 @@ function Header(props) {
                 placeholder="Enter your password"
                 onChange={e => setPassword(e.target.value)}
               />
-              <button className="auth-button">Register</button>
+              <button className="login-button">Register</button>
               <p>
                 Already a member?{" "}
                 <span
@@ -122,6 +122,9 @@ function Header(props) {
           <div className="logged-in">
             <h3>Logged in as: {props.userReducer.user.user_email}</h3>
             <div className="logged-in-buttons">
+              <button className="auth-button">
+                <Link to="/shop">Shop</Link>
+              </button>
               <button className="auth-button">
                 <Link to="/cart">Cart</Link>
               </button>

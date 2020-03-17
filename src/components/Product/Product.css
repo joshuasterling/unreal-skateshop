@@ -1,0 +1,23 @@
+.product-component {
+  display: flex;
+  justify-content: center;
+  font-family: "Rock Salt", cursive;
+  font-weight: 700;
+}
+
+.product-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f8f9fa;
+  font-family: "Rock Salt", cursive;
+  text-align: center;
+  width: 92vw;
+  margin: 3vh;
+}
+
+.cart-image {
+  max-width: 200px;
+  max-height: 200px;
+}

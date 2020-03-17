@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getProductsByType } from "../../redux/productReducer";
+import { addToCart } from "../../redux/cartReducer";
 import { useState, useEffect } from "react";
 import Carousel from "react-material-ui-carousel";
 import "./NewCarousel.css";
@@ -14,7 +15,7 @@ function NewCarousel(props) {
 
   useEffect(() => {
     props.getProductsByType(props.type);
-  }, []);
+  }, [props.type]);
 
   const mappedProducts = props.productReducer.productList.map(
     (element, index, array) => {
@@ -28,7 +29,14 @@ function NewCarousel(props) {
             <p>{element.product_name}</p>
             <p>{element.product_price}</p>
             <div>
-              <button className="cart-button">Add To Cart</button>
+              <button
+                className="cart-button"
+                onClick={() => {
+                  props.addToCart(element.product_id);
+                }}
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
           {array[secondItem] ? (
@@ -42,7 +50,14 @@ function NewCarousel(props) {
                 <p>{array[nextItem].product_name}</p>
                 <p>{array[nextItem].product_price}</p>
                 <div>
-                  <button className="cart-button">Add To Cart</button>
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      props.addToCart(array[nextItem].product_id);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
               <div className="item-container">
@@ -54,7 +69,14 @@ function NewCarousel(props) {
                 <p>{array[secondItem].product_name}</p>
                 <p>{array[secondItem].product_price}</p>
                 <div>
-                  <button className="cart-button">Add To Cart</button>
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      props.addToCart(array[secondItem].product_id);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
             </span>
@@ -69,7 +91,14 @@ function NewCarousel(props) {
                 <p>{array[0].product_name}</p>
                 <p>{array[0].product_price}</p>
                 <div>
-                  <button className="cart-button">Add To Cart</button>
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      props.addToCart(array[0].product_id);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
               <div className="item-container">
@@ -81,7 +110,14 @@ function NewCarousel(props) {
                 <p>{array[1].product_name}</p>
                 <p>{array[1].product_price}</p>
                 <div>
-                  <button className="cart-button">Add To Cart</button>
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      props.addToCart(array[1].product_id);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
             </span>
@@ -109,4 +145,6 @@ const mapStateToProps = reduxState => {
   };
 };
 
-export default connect(mapStateToProps, { getProductsByType })(NewCarousel);
+export default connect(mapStateToProps, { getProductsByType, addToCart })(
+  NewCarousel
+);
