@@ -44,11 +44,15 @@ module.exports = {
   },
 
   updateQty: async (req, res) => {
-    const { cart_id, qty, user_id } = req.body;
+    if (!req.session.user.user_id) {
+      return res.status(400);
+    }
+    let { user_id } = req.session.user;
+    const { cart_id, newQty } = req.body;
     const db = req.app.get("db");
 
     try {
-      let cart = await db.update_qty(cart_id, qty, user_id);
+      let cart = await db.update_qty(cart_id, newQty, user_id);
       return res.status(200).send(cart);
     } catch (error) {
       return res.sendStatus(500);

@@ -9,13 +9,19 @@ import linkedin from "./linkedin.svg";
 import "./Landing.css";
 
 class Landing extends React.Component {
-  render() {
-    if (this.props.userReducer.user.user_email) return <Redirect to="/shop" />;
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount = () => {
     setTimeout(() => {
       scroll.scrollTo(window.innerHeight - window.innerHeight * 0.18);
       clearTimeout();
     }, 2000);
+  };
+
+  render() {
+    if (this.props.userReducer.user.user_email) return <Redirect to="/shop" />;
 
     return (
       <div className="landing">

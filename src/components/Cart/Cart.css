@@ -1,17 +1,20 @@
 .cart-component {
   font-family: "Rock Salt", cursive;
   font-weight: 700;
+  /* margin-top: 15vh; */
+  position: relative;
 }
 
 .cart-section {
   display: flex;
   flex-direction: column;
-  height: 110vh;
   align-items: center;
   justify-content: center;
   background-color: #f8f9fa;
   font-family: "Rock Salt", cursive;
   text-align: center;
+  padding-bottom: 20vh;
+  min-height: 100vh;
 }
 
 .cart-title {
@@ -19,11 +22,44 @@
   align-items: center;
   font-size: 2.8rem;
   text-align: center;
-  margin-top: 15vh;
+  /* margin-top: 15vh; */
+  position: absolute;
+  top: 13vh;
 }
 
 .cart-holder {
   background-color: white;
-  height: 100vh;
   width: 95vw;
+  margin-top: 35vh;
+}
+
+.bottom-section {
+  display: flex;
+  position: absolute;
+  margin: 5vh 5vw;
+  right: 1vw;
+  bottom: 0vh;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4vw;
+}
+
+.bottom-section h2 {
+  text-decoration: underline;
+}
+
+.checkout-button {
+  font-family: "Rock Salt", cursive;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: rgba(255, 105, 180);
+  border: black 3px solid;
+  height: 7vh;
+  width: 9vw;
+  margin: 2vh;
 }

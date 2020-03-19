@@ -2,10 +2,12 @@ import React from "react";
 import NewCarousel from "../NewCarousel/NewCarousel";
 // eslint-disable-next-line
 import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
+import ScrollToTop from "../ScrollToTop";
 import { useState } from "react";
 import "./Shop.css";
 
 function Shop() {
+  ScrollToTop();
   const [product, setProduct] = useState("");
 
   return (
