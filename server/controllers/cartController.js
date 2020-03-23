@@ -1,7 +1,11 @@
+require("dotenv").config();
+const { STRIPE_SECRET_KEY } = process.env;
+const stripe = require("stripe")(STRIPE_SECRET_KEY);
+
 module.exports = {
   addToCart: async (req, res) => {
-    if (!req.session.user.user_id) {
-      return res.status(400);
+    if (!req.session.user) {
+      return res.status(401).send("Please login or register a new account.");
     }
     let { user_id } = req.session.user;
     const { product_id } = req.body;
@@ -61,7 +65,7 @@ module.exports = {
 
   deleteItem: async (req, res) => {
     if (!req.session.user.user_id) {
-      return res.status(400);
+      return res.status(401);
     }
     let { user_id } = req.session.user;
 
@@ -74,5 +78,31 @@ module.exports = {
     } catch (error) {
       return res.sendStatus(500);
     }
+  },
+
+  clearCart: async (req, res) => {
+    if (!req.session.user.user_id) {
+      return res.status(401);
+    }
+    let { user_id } = req.session.user;
+    const db = req.app.get("db");
+
+    try {
+      let cart = await db.clear_cart(user_id);
+      return res.status(200).send(cart);
+    } catch (error) {
+      return res.sendStatus(500);
+    }
+  },
+
+  checkOut: async (req, res) => {
+    const { cartTotal } = req.body;
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: cartTotal,
+      currency: "usd",
+      // Verify your integration in this guide by including this parameter
+      metadata: { integration_check: "accept_a_payment" }
+    });
+    return res.status(200).send(paymentIntent);
   }
 };

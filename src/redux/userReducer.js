@@ -4,7 +4,9 @@ const initialState = {
   user: {},
   loading: false,
   error: false,
-  errorMessage: ""
+  errorMessage: "",
+  success: false,
+  successMessage: ""
 };
 
 const CHECK_USER = "CHECK_USER";
@@ -55,16 +57,46 @@ export function clearReducer() {
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case CHECK_USER + "_PENDING":
-      return { ...state, loading: true, error: false };
+      return {
+        ...state,
+        loading: true,
+        errorMessage: "",
+        error: false,
+        success: false,
+        successMessage: ""
+      };
     case CHECK_USER + "_FULFILLED":
-      return { ...state, user: action.payload.data, loading: false };
+      return {
+        ...state,
+        user: action.payload.data,
+        loading: false,
+        errorMessage: "",
+        error: false,
+        success: false,
+        successMessage: ""
+      };
     case CHECK_USER + "_REJECTED":
       console.log("CHECK_USER REJECTED:", action.payload);
       return { ...state, ...initialState };
     case LOGIN + "_PENDING":
-      return { ...state, loading: true, error: false };
+      return {
+        ...state,
+        loading: true,
+        errorMessage: "",
+        error: false,
+        success: false,
+        successMessage: ""
+      };
     case LOGIN + "_FULFILLED":
-      return { ...state, user: action.payload.data, loading: false };
+      return {
+        ...state,
+        user: action.payload.data,
+        loading: false,
+        errorMessage: "",
+        error: false,
+        success: false,
+        successMessage: ""
+      };
     case LOGIN + "_REJECTED":
       return {
         ...state,
@@ -77,7 +109,6 @@ export default function userReducer(state = initialState, action) {
     case REGISTER + "_FULFILLED":
       return { ...state, user: action.payload.data, loading: false };
     case REGISTER + "_REJECTED":
-      console.log(action);
       return {
         ...state,
         loading: false,
@@ -87,7 +118,13 @@ export default function userReducer(state = initialState, action) {
     case LOGOUT + "_PENDING":
       return { ...state, loading: true };
     case LOGOUT + "_FULFILLED":
-      return { ...initialState, error: false };
+      return {
+        ...initialState,
+        error: false,
+        errorMessage: "",
+        success: false,
+        successMessage: ""
+      };
     case LOGOUT + "_REJECTED":
       return {
         ...state,

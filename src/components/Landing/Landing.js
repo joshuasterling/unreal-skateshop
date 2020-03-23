@@ -2,20 +2,16 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import twitter from "./twitter.svg";
 import facebook from "./facebook.svg";
 import linkedin from "./linkedin.svg";
 import "./Landing.css";
 
 class Landing extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = () => {
     setTimeout(() => {
-      scroll.scrollTo(window.innerHeight - window.innerHeight * 0.18);
+      scroll.scrollTo(window.innerHeight - window.innerHeight * 0.19);
       clearTimeout();
     }, 2000);
   };

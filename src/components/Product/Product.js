@@ -13,16 +13,16 @@ function Product(props) {
     if (props.userReducer.user.user_id) {
       props.getCart();
     }
+  }, [props.userReducer.user.user_id]);
 
-    if (props.userReducer.user.user_id) {
-      props.handleCart(
-        props.cartReducer.cart.reduce((acc, element) => {
-          return acc + +element.product_price * element.qty;
-        }, 0)
-      );
+  useEffect(() => {
+    if (props.cartReducer.cart) {
+      let tempCartTotal = props.cartReducer.cart.reduce((acc, element) => {
+        return acc + +element.product_price * element.qty;
+      }, 0);
+      props.handleCart(tempCartTotal);
     }
-    console.log("I'm looping");
-  }, [props]);
+  }, [props.cartReducer.cart]);
 
   const [newQty, handleQty] = useState();
 
@@ -54,7 +54,7 @@ function Product(props) {
           </div>
           <div>
             <p className="product-info">Product Total:</p>
-            <div>{productTotal}</div>
+            <div>{productTotal.toFixed(2)}</div>
           </div>
           <div>
             <button

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import { clearCartReducer } from "../../redux/cartReducer";
 import "react-toastify/dist/ReactToastify.css";
 
 class AuthErrors extends React.Component {
@@ -9,9 +10,24 @@ class AuthErrors extends React.Component {
       toast.warning(`${this.props.userReducer.errorMessage}`, {
         position: toast.POSITION.TOP_RIGHT
       });
+
+    if (this.props.cartReducer.success) {
+      toast.success(`${this.props.cartReducer.successMessage}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      this.props.clearCartReducer();
+    }
+
+    if (this.props.cartReducer.error) {
+      toast.info(`${this.props.cartReducer.errorMessage}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      this.props.clearCartReducer();
+    }
+
     return (
       <div style={{ position: "fixed" }}>
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={2500} />
       </div>
     );
   }
@@ -19,8 +35,9 @@ class AuthErrors extends React.Component {
 
 const mapStateToProps = reduxState => {
   return {
-    userReducer: reduxState.userReducer
+    userReducer: reduxState.userReducer,
+    cartReducer: reduxState.cartReducer
   };
 };
 
-export default connect(mapStateToProps)(AuthErrors);
+export default connect(mapStateToProps, { clearCartReducer })(AuthErrors);

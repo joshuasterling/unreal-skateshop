@@ -5,11 +5,13 @@ const express = require("express"),
   authCtrl = require("./controllers/authController"),
   cartCtrl = require("./controllers/cartController"),
   productCtrl = require("./controllers/productController"),
+  emailCtrl = require("./controllers/emailController"),
   checkUser = require("./middlware/checkUser"),
   { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
 const app = express();
 
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 app.use(
   session({
@@ -46,5 +48,12 @@ app.post("/api/cart", cartCtrl.addToCart);
 app.get("/api/cart", cartCtrl.getCart);
 app.put("/api/cart", cartCtrl.updateQty);
 app.delete("/api/cart/:cart_id", cartCtrl.deleteItem);
+app.delete("/api/clear/", cartCtrl.clearCart);
+
+//STRIPE
+app.post("/api/checkout", cartCtrl.checkOut);
+
+//NODEMAILER
+app.get("/api/email", emailCtrl.sendEmail);
 
 app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`));

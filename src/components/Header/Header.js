@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { logout, login, register, clearReducer } from "../../redux/userReducer";
+import { clearCartReducer } from "../../redux/cartReducer";
 import { Link, withRouter } from "react-router-dom";
 // eslint-disable-next-line
 import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
@@ -157,5 +158,6 @@ export default connect(mapStateToProps, {
   logout,
   login,
   register,
-  clearReducer
+  clearReducer,
+  clearCartReducer
 })(withRouter(Header));

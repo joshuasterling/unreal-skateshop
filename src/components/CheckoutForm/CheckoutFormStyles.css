@@ -1,0 +1,30 @@
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 105, 180);
+  width: 45vw;
+  height: 25vh;
+  justify-content: space-around;
+  padding: 5vh 45px;
+}
+
+.button-holder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.card-checkout-buttons {
+  font-family: "Rock Salt", cursive;
+  font-size: 0.8rem;
+  font-weight: 700;
+  /* background-color: rgba(255, 105, 180); */
+  border: black 3px solid;
+  height: 6vh;
+  width: 8vw;
+  margin: 2vh;
+}
